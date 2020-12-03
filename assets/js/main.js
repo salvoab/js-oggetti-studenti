@@ -51,7 +51,7 @@ function getPromptedInteger(message){
  * 
  * @param {array} studentList Array di oggetti studente al quale aggiungere un nuovo oggetto studente.
  */
-function getPromptedStudent(studentList) {
+function addPromptedStudent(studentList) {
     var newStudent = {};
     newStudent.nome = prompt("Inserisci il nome del nuovo studente");
     newStudent.cognome = prompt("Inserisci il cognome del nuovo studente");
@@ -88,7 +88,7 @@ showProperties(studente);
 console.log("Secondo punto dell'esercizio: mostrare nomi e cognomi nell'array di studenti");
 showNameSurname(listaStudenti);
 console.log("Terzo punto dell'esercizio: chiedo all'utente di inserire un nuovo studente con 3 prompt");
-getPromptedStudent(listaStudenti);
+addPromptedStudent(listaStudenti);
 console.log("Stampo la lista aggiornata degli studenti");
 for(var i=0; i < listaStudenti.length; i++){
     console.log(`---------- Studente numero ${i+1} ----------`);
