@@ -27,6 +27,26 @@ function showNameSurname(studentObjects){
 }
 
 /**
+ * Richiede un numero intero tramite prompt e lo restituisce solo quando il valore inserito è effettivamente un numero.
+ * Il messaggio da mostrare nel prompt è richiesto come parametro.
+ * 
+ * @param {string} message Stringa di testo da inserire nel prompt
+ * @return {number} Numero inserito dall'utente.
+ */
+function getPromptedInteger(message){
+    do{
+        var invalidInput = false;
+        var number = parseInt(prompt(message));
+        if(number === null || isNaN(number)){
+            alert("Attenzione! Puoi inserire solo un valore numerico");
+            invalidInput = true;
+        }
+    }while(invalidInput);
+    
+    return number;
+}
+
+/**
  * Crea un oggetto studente con i dati inseriti dall'utente. Il nuovo oggetto studente viene aggiunto alla fine dell'array di oggetti studente. 
  * 
  * @param {array} studentList Array di oggetti studente al quale aggiungere un nuovo oggetto studente.
@@ -35,7 +55,7 @@ function getPromptedStudent(studentList) {
     var newStudent = {};
     newStudent.nome = prompt("Inserisci il nome del nuovo studente");
     newStudent.cognome = prompt("Inserisci il cognome del nuovo studente");
-    newStudent.eta = parseInt(prompt("Inserisci l'età del nuovo studente"));
+    newStudent.eta = getPromptedInteger("Inserisci l'età del nuovo studente");
     studentList.push(newStudent);
 }
 
