@@ -26,6 +26,22 @@ function showNameSurname(studentObjects){
     }
 }
 
+/**
+ * Aggiunge un oggetto studente alla fine di un array di oggetti studente.
+ * 
+ * @param {array} studentList Array di oggetti studente al quale aggiungere un nuovo oggetto studente.
+ * @param {string} name Nome del nuovo studente.
+ * @param {string} surname Cognome del nuovo studente.
+ * @param {number} age Età del nuovo studente.
+ */
+function addStudent(studentList, name, surname, age) {
+    var newStudent = {};
+    newStudent.nome = name;
+    newStudent.cognome = surname;
+    newStudent.eta = age;
+    studentList.push(newStudent);
+}
+
 var studente = {
     nome : "Aldo",
     cognome : "Garofalo",
@@ -54,3 +70,13 @@ console.log("Primo punto dell'esercizio: mostrare le proprietà di un oggetto st
 showProperties(studente);
 console.log("Secondo punto dell'esercizio: mostrare nomi e cognomi nell'array di studenti");
 showNameSurname(listaStudenti);
+
+var nomeStudente = prompt("Inserisci il nome del nuovo studente");
+var cognomeStudente = prompt("Inserisci il cognome del nuovo studente");
+var etaStudente = parseInt(prompt("Inserisci l'età del nuovo studente"));
+addStudent(listaStudenti, nomeStudente, cognomeStudente,etaStudente);
+console.log("Stampo la lista aggiornata degli studenti");
+for(var i=0; i < listaStudenti.length; i++){
+    console.log(`Studente numero ${i+1}: `);
+    showProperties(listaStudenti[i]);
+}
